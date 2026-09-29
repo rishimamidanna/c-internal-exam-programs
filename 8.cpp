@@ -1,34 +1,21 @@
 #include <iostream>
 using namespace std;
 
-// Class Template declaration
-template <class T> class Calculator {
-  T a, b;
-
-public:
-  Calculator(T x, T y) {
-    a = x;
-    b = y;
-  }
-
-  void add() { cout << "Sum = " << a + b << endl; }
-};
+// One single function template for any data type
+template <typename T>
+T add(T a, T b) {
+    return a + b;
+}
 
 int main() {
-  // 1. Template instantiated with int
-  Calculator<int> intCalc(10, 20);
-  cout << "Integer Addition: ";
-  intCalc.add();
+    // 1. Using it with integers
+    cout << "Integers: " << add(10, 20) << endl;
 
-  // 2. Template instantiated with float
-  Calculator<float> floatCalc(5.5f, 4.3f);
-  cout << "Float Addition: ";
-  floatCalc.add();
+    // 2. Using the exact same function with floats
+    cout << "Floats:   " << add(5.5f, 2.3f) << endl;
 
-  // 3. Template instantiated with double
-  Calculator<double> doubleCalc(12.345, 67.891);
-  cout << "Double Addition: ";
-  doubleCalc.add();
+    // 3. Using the exact same function with doubles
+    cout << "Doubles:  " << add(12.345, 6.789) << endl;
 
-  return 0;
+    return 0;
 }
